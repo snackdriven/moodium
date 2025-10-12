@@ -1,0 +1,357 @@
+/* Enhanced Mood Creature Styles with Framer Motion Support */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Creature Wrapper */
+.creatureWrapper {
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.creatureSvg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 4px 20px rgba(var(--foreground-rgb), 0.1));
+}
+
+/* Error Boundary */
+.errorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  width: 100%;
+}
+
+.errorContent {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(var(--foreground-rgb), 0.05);
+  border-radius: 1rem;
+  max-width: 400px;
+}
+
+.errorEmoji {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.loadingCreature {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.loadingDot {
+  width: 12px;
+  height: 12px;
+  background: var(--foreground);
+  border-radius: 50%;
+}
+
+/* Animated Slider */
+.animatedSliderContainer {
+  width: 100%;
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.sliderTrack {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: rgba(var(--foreground-rgb), 0.1);
+  border-radius: 4px;
+  overflow: visible;
+  margin: 1.5rem 0;
+}
+
+.sliderFill {
+  position: absolute;
+  height: 100%;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.sliderInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sliderThumb {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background: var(--foreground);
+  border: 3px solid var(--background);
+  border-radius: 50%;
+  cursor: grab;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sliderThumb:active {
+  cursor: grabbing;
+}
+
+.thumbPulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: var(--foreground);
+  pointer-events: none;
+}
+
+.sliderValue {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.25rem 0.5rem;
+  background: var(--foreground);
+  color: var(--background);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+/* Notes Section */
+.notesSection {
+  width: 100%;
+  margin: 1rem 0;
+}
+
+.notesSection label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.notesInput {
+  width: 100%;
+  padding: 0.75rem;
+  background: rgba(var(--foreground-rgb), 0.05);
+  border: 1px solid rgba(var(--foreground-rgb), 0.2);
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  resize: vertical;
+  transition: all 0.2s ease;
+}
+
+.notesInput:focus {
+  outline: none;
+  border-color: var(--foreground);
+  background: rgba(var(--foreground-rgb), 0.08);
+}
+
+.notesInput::placeholder {
+  opacity: 0.5;
+}
+
+/* Summary Content */
+.summaryContent {
+  text-align: center;
+  padding: 1rem;
+}
+
+.mainSummary {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.archetypeLabel {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+.archetypeName {
+  font-weight: 600;
+  color: var(--foreground);
+  opacity: 1;
+}
+
+/* Button Enhancements */
+.primaryButton {
+  padding: 0.875rem 2.5rem;
+  background: var(--foreground);
+  color: var(--background);
+  border: none;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.primaryButton:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.secondaryButton {
+  padding: 0.875rem 2.5rem;
+  background: transparent;
+  color: var(--foreground);
+  border: 1.5px solid currentColor;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.secondaryButton:hover {
+  background: var(--foreground);
+  color: var(--background);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--foreground-rgb), 0.2);
+}
+
+/* Step Containers */
+.greeting,
+.prompt,
+.summary,
+.farewell {
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.greeting h2,
+.prompt h2,
+.summary h2,
+.farewell h2 {
+  font-size: 1.625rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  :global(*) {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .creatureWrapper {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.75rem 1.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .actions button {
+    width: 100%;
+  }
+}
+
+/* Dark mode adjustments */
+@media (prefers-color-scheme: dark) {
+  .sliderTrack {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .notesInput {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  .notesInput:focus {
+    background: rgba(255, 255, 255, 0.08);
+  }
+  
+  .errorContent {
+    background: rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Focus styles */
+:global(*:focus-visible) {
+  outline: 2px solid var(--foreground);
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Smooth scroll */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

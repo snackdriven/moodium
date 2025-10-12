@@ -1,6 +1,6 @@
 export interface ToneCubePoint {
   energy: number; // 0-100
-  focus: number;  // 0-100
+  focus: number; // 0-100
   social: number; // 0-100
 }
 
@@ -15,7 +15,7 @@ export interface ToneCube {
   social: ToneAdjective[];
 }
 
-export type ArchetypeType = 
+export type ArchetypeType =
   | 'Recharge'
   | 'Gather'
   | 'Flow'
