@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+import { eq, desc } from 'drizzle-orm';
 
 import { db } from '@/lib/db';
 import * as schema from '@/lib/db/schema';
@@ -63,6 +64,10 @@ export async function POST(request: NextRequest) {
     }
 
     // Return success response
+    if (!savedEntry) {
+      throw new Error('Failed to save mood entry');
+    }
+    
     return NextResponse.json({
       success: true,
       data: {
@@ -79,7 +84,7 @@ export async function POST(request: NextRequest) {
 
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { success: false, error: 'Invalid request data', details: error.errors },
+        { success: false, error: 'Invalid request data', details: error.issues },
         { status: 400 }
       );
     }
@@ -103,8 +108,8 @@ export async function GET(request: NextRequest) {
       const entries = await db
         .select()
         .from(schema.moodEntries)
-        .where(schema.moodEntries.userId.eq(userId))
-        .orderBy(schema.moodEntries.createdAt.desc())
+        .where(eq(schema.moodEntries.userId, userId))
+        .orderBy(desc(schema.moodEntries.createdAt))
         .limit(10);
 
       return NextResponse.json({

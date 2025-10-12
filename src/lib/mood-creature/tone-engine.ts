@@ -1,5 +1,7 @@
-import toneBundle from './data/tone-bundle.json';
-import { Archetype, ArchetypeType, GeneratedSentence, ToneAdjective, ToneCubePoint } from './types';
+import toneBundleData from './data/tone-bundle.json';
+import { Archetype, ArchetypeType, GeneratedSentence, ToneAdjective, ToneCubePoint, ToneBundle } from './types';
+
+const toneBundle = toneBundleData as ToneBundle;
 
 export class ToneEngine {
   private static getTier(value: number): 'low' | 'medium' | 'high' {
@@ -30,7 +32,7 @@ export class ToneEngine {
   public static getArchetype(point: ToneCubePoint): ArchetypeType {
     const { energy, focus, social } = point;
 
-    for (const archetype of toneBundle.archetypes) {
+    for (const archetype of toneBundle.archetypes as Archetype[]) {
       const [energyMin, energyMax] = archetype.energyRange;
       const [focusMin, focusMax] = archetype.focusRange;
       const [socialMin, socialMax] = archetype.socialRange;
@@ -92,14 +94,14 @@ export class ToneEngine {
   }
 
   public static getFlavorPhrase(archetype: ArchetypeType): string {
-    const archetypeData = toneBundle.archetypes.find((a: Archetype) => a.name === archetype);
+    const archetypeData = (toneBundle.archetypes as Archetype[]).find((a) => a.name === archetype);
 
     if (!archetypeData || archetypeData.flavorPacks.length === 0) {
       return '';
     }
 
     const flavorPackName = this.getRandomFromArray(archetypeData.flavorPacks);
-    const flavorPack = toneBundle.flavorPacks[flavorPackName];
+    const flavorPack = toneBundle.flavorPacks[flavorPackName as keyof typeof toneBundle.flavorPacks];
 
     if (!flavorPack || flavorPack.phrases.length === 0) {
       return '';
@@ -134,7 +136,7 @@ export class ToneEngine {
   }
 
   public static getArchetypeDescription(archetype: ArchetypeType): string {
-    const archetypeData = toneBundle.archetypes.find((a: Archetype) => a.name === archetype);
+    const archetypeData = (toneBundle.archetypes as Archetype[]).find((a) => a.name === archetype);
     return archetypeData?.description || '';
   }
 

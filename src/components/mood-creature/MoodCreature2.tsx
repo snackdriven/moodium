@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { createContext, ReactNode, useContext, useState } from 'react';
 
 import { AnimatedSlider } from './AnimatedSlider';
-import { CreatureAvatar } from './CreatureAvatar';
+import { LumaCreatureAvatar } from './LumaCreatureAvatar';
 import { ErrorBoundary } from './ErrorBoundary';
 import { useMoodSubmit, useOptimisticMood } from './hooks/useMoodSubmit';
 import { LoadingState } from './LoadingState';
@@ -87,7 +87,7 @@ MoodCreature.Greeting = function Greeting() {
       exit={{ y: -20, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
     >
-      <CreatureAvatar mood="greeting" />
+      <LumaCreatureAvatar mood="greeting" />
       <motion.h2 initial={{ scale: 0.9 }} animate={{ scale: 1 }} transition={{ delay: 0.2 }}>
         Hey friend! Wanna check in together?
       </motion.h2>
@@ -120,7 +120,7 @@ MoodCreature.Energy = function Energy() {
       exit={{ x: -100, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
     >
-      <CreatureAvatar mood="questioning" />
+      <LumaCreatureAvatar mood="questioning" energy={energy} />
       <h2>Are you more ☁️ low-tide or ✨ starlit today?</h2>
       <AnimatedSlider
         value={energy}
@@ -155,7 +155,7 @@ MoodCreature.Focus = function Focus() {
       exit={{ x: -100, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
     >
-      <CreatureAvatar mood="curious" />
+      <LumaCreatureAvatar mood="curious" energy={energy} focus={focus} />
       <h2>Is your mind more like misty clouds or a clear shelf?</h2>
       <AnimatedSlider
         value={focus}
@@ -190,7 +190,7 @@ MoodCreature.Social = function Social() {
       exit={{ x: -100, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 300, damping: 25 }}
     >
-      <CreatureAvatar mood="waiting" />
+      <LumaCreatureAvatar mood="waiting" energy={energy} focus={focus} social={social} />
       <h2>Would you rather curl up in your fort or dance in the kitchen?</h2>
       <AnimatedSlider
         value={social}
@@ -252,7 +252,7 @@ MoodCreature.Summary = function Summary({ onComplete, userId }: { onComplete?: (
       exit={{ scale: 0.9, opacity: 0 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
     >
-      <CreatureAvatar mood={creatureMood.expression} color={creatureMood.color} />
+      <LumaCreatureAvatar mood={creatureMood.expression} archetype={archetype} energy={energy} focus={focus} social={social} />
 
       <motion.div
         initial={{ y: 20, opacity: 0 }}
@@ -315,7 +315,7 @@ MoodCreature.Complete = function Complete() {
       animate={{ scale: 1, opacity: 1 }}
       transition={{ type: 'spring', stiffness: 200, damping: 20 }}
     >
-      <CreatureAvatar mood="happy" />
+      <LumaCreatureAvatar mood="happy" />
       <motion.h2 initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.3 }}>
         Thanks for checking in — see you tomorrow, pal.
       </motion.h2>
