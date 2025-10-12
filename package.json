@@ -12,7 +12,8 @@
     "typescript"
   ],
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "node scripts/kill-port.cjs 3000 && next dev --turbopack",
+    "dev:raw": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit",

@@ -1,0 +1,322 @@
+{
+  "toneCube": {
+    "energy": [
+      { "adjective": "drained", "tier": "low" },
+      { "adjective": "weary", "tier": "low" },
+      { "adjective": "sluggish", "tier": "low" },
+      { "adjective": "heavy", "tier": "low" },
+      { "adjective": "depleted", "tier": "low" },
+      { "adjective": "exhausted", "tier": "low" },
+      { "adjective": "calm", "tier": "medium" },
+      { "adjective": "steady", "tier": "medium" },
+      { "adjective": "balanced", "tier": "medium" },
+      { "adjective": "grounded", "tier": "medium" },
+      { "adjective": "centered", "tier": "medium" },
+      { "adjective": "stable", "tier": "medium" },
+      { "adjective": "energized", "tier": "high" },
+      { "adjective": "vibrant", "tier": "high" },
+      { "adjective": "sparkling", "tier": "high" },
+      { "adjective": "buzzing", "tier": "high" },
+      { "adjective": "electric", "tier": "high" },
+      { "adjective": "radiant", "tier": "high" }
+    ],
+    "focus": [
+      { "adjective": "scattered", "tier": "low" },
+      { "adjective": "foggy", "tier": "low" },
+      { "adjective": "drifting", "tier": "low" },
+      { "adjective": "misty", "tier": "low" },
+      { "adjective": "clouded", "tier": "low" },
+      { "adjective": "hazy", "tier": "low" },
+      { "adjective": "flowing", "tier": "medium" },
+      { "adjective": "wandering", "tier": "medium" },
+      { "adjective": "meandering", "tier": "medium" },
+      { "adjective": "exploring", "tier": "medium" },
+      { "adjective": "browsing", "tier": "medium" },
+      { "adjective": "shifting", "tier": "medium" },
+      { "adjective": "focused", "tier": "high" },
+      { "adjective": "clear", "tier": "high" },
+      { "adjective": "sharp", "tier": "high" },
+      { "adjective": "precise", "tier": "high" },
+      { "adjective": "locked-in", "tier": "high" },
+      { "adjective": "crystalline", "tier": "high" }
+    ],
+    "social": [
+      { "adjective": "tucked-in", "tier": "low" },
+      { "adjective": "cocooned", "tier": "low" },
+      { "adjective": "nested", "tier": "low" },
+      { "adjective": "withdrawn", "tier": "low" },
+      { "adjective": "private", "tier": "low" },
+      { "adjective": "sheltered", "tier": "low" },
+      { "adjective": "independent", "tier": "medium" },
+      { "adjective": "selective", "tier": "medium" },
+      { "adjective": "balanced", "tier": "medium" },
+      { "adjective": "flexible", "tier": "medium" },
+      { "adjective": "adaptive", "tier": "medium" },
+      { "adjective": "moderate", "tier": "medium" },
+      { "adjective": "connected", "tier": "high" },
+      { "adjective": "open", "tier": "high" },
+      { "adjective": "engaged", "tier": "high" },
+      { "adjective": "expansive", "tier": "high" },
+      { "adjective": "blooming", "tier": "high" },
+      { "adjective": "radiant", "tier": "high" }
+    ]
+  },
+  "archetypes": [
+    {
+      "name": "Recharge",
+      "energyRange": [0, 33],
+      "focusRange": [0, 33],
+      "socialRange": [0, 33],
+      "flavorPacks": ["rest", "cozy", "quiet"],
+      "description": "Low energy, low focus, low social - time for deep rest"
+    },
+    {
+      "name": "Gather",
+      "energyRange": [34, 66],
+      "focusRange": [34, 66],
+      "socialRange": [0, 33],
+      "flavorPacks": ["steady", "introspective", "collecting"],
+      "description": "Medium energy and focus, low social - gathering thoughts internally"
+    },
+    {
+      "name": "Flow",
+      "energyRange": [67, 100],
+      "focusRange": [67, 100],
+      "socialRange": [0, 33],
+      "flavorPacks": ["focused", "productive", "deep-work"],
+      "description": "High energy and focus, low social - deep work flow state"
+    },
+    {
+      "name": "Scatter",
+      "energyRange": [67, 100],
+      "focusRange": [0, 33],
+      "socialRange": [34, 66],
+      "flavorPacks": ["playful", "creative", "spontaneous"],
+      "description": "High energy, low focus, medium social - creative chaos"
+    },
+    {
+      "name": "Bloom",
+      "energyRange": [67, 100],
+      "focusRange": [34, 66],
+      "socialRange": [67, 100],
+      "flavorPacks": ["social", "engaged", "connecting"],
+      "description": "High energy, medium focus, high social - social engagement"
+    },
+    {
+      "name": "Focus Forge",
+      "energyRange": [34, 66],
+      "focusRange": [67, 100],
+      "socialRange": [34, 66],
+      "flavorPacks": ["determined", "building", "crafting"],
+      "description": "Medium energy, high focus, medium social - building mode"
+    },
+    {
+      "name": "Fog Pulse",
+      "energyRange": [0, 33],
+      "focusRange": [0, 33],
+      "socialRange": [34, 100],
+      "flavorPacks": ["floating", "dreamy", "receptive"],
+      "description": "Low energy and focus, medium-high social - receptive presence"
+    },
+    {
+      "name": "Equilibrium",
+      "energyRange": [34, 66],
+      "focusRange": [34, 66],
+      "socialRange": [34, 66],
+      "flavorPacks": ["balanced", "centered", "harmonious"],
+      "description": "Medium across all axes - balanced state"
+    }
+  ],
+  "sentenceTemplates": {
+    "opening": [
+      {
+        "template": "We're feeling {energy}",
+        "categories": ["energy"],
+        "weight": 1
+      },
+      {
+        "template": "Today we're {energy}",
+        "categories": ["energy"],
+        "weight": 1
+      },
+      {
+        "template": "Right now we're {energy}",
+        "categories": ["energy"],
+        "weight": 1
+      }
+    ],
+    "middle": [
+      {
+        "template": "thoughts {focus}",
+        "categories": ["focus"],
+        "weight": 1
+      },
+      {
+        "template": "mind {focus}",
+        "categories": ["focus"],
+        "weight": 1
+      },
+      {
+        "template": "attention {focus}",
+        "categories": ["focus"],
+        "weight": 1
+      }
+    ],
+    "closing": [
+      {
+        "template": "heart {social}",
+        "categories": ["social"],
+        "weight": 1
+      },
+      {
+        "template": "feeling {social}",
+        "categories": ["social"],
+        "weight": 1
+      },
+      {
+        "template": "spirit {social}",
+        "categories": ["social"],
+        "weight": 1
+      }
+    ]
+  },
+  "flavorPacks": {
+    "rest": {
+      "phrases": ["taking shelter", "finding quiet", "soft landing"],
+      "weight": 1
+    },
+    "cozy": {
+      "phrases": ["wrapped up", "tucked away", "nestled in"],
+      "weight": 1
+    },
+    "quiet": {
+      "phrases": ["hushed spaces", "gentle silence", "soft stillness"],
+      "weight": 1
+    },
+    "steady": {
+      "phrases": ["holding center", "finding rhythm", "keeping pace"],
+      "weight": 1
+    },
+    "introspective": {
+      "phrases": ["looking within", "inner compass", "quiet reflection"],
+      "weight": 1
+    },
+    "collecting": {
+      "phrases": ["gathering pieces", "collecting moments", "building slowly"],
+      "weight": 1
+    },
+    "focused": {
+      "phrases": ["laser sharp", "locked in", "clear sight"],
+      "weight": 1
+    },
+    "productive": {
+      "phrases": ["making progress", "building momentum", "creating flow"],
+      "weight": 1
+    },
+    "deep-work": {
+      "phrases": ["diving deep", "total immersion", "complete focus"],
+      "weight": 1
+    },
+    "playful": {
+      "phrases": ["dancing around", "light touches", "spark joy"],
+      "weight": 1
+    },
+    "creative": {
+      "phrases": ["making magic", "wild ideas", "color splash"],
+      "weight": 1
+    },
+    "spontaneous": {
+      "phrases": ["following impulse", "sudden turns", "surprise moments"],
+      "weight": 1
+    },
+    "social": {
+      "phrases": ["reaching out", "making connections", "sharing space"],
+      "weight": 1
+    },
+    "engaged": {
+      "phrases": ["fully present", "showing up", "being here"],
+      "weight": 1
+    },
+    "connecting": {
+      "phrases": ["building bridges", "weaving threads", "joining hearts"],
+      "weight": 1
+    },
+    "determined": {
+      "phrases": ["pushing through", "holding steady", "staying course"],
+      "weight": 1
+    },
+    "building": {
+      "phrases": ["laying foundations", "stacking blocks", "raising walls"],
+      "weight": 1
+    },
+    "crafting": {
+      "phrases": ["shaping form", "careful work", "making real"],
+      "weight": 1
+    },
+    "floating": {
+      "phrases": ["drifting gently", "soft edges", "flowing around"],
+      "weight": 1
+    },
+    "dreamy": {
+      "phrases": ["cloud walking", "soft focus", "gentle blur"],
+      "weight": 1
+    },
+    "receptive": {
+      "phrases": ["open channels", "receiving signals", "taking in"],
+      "weight": 1
+    },
+    "balanced": {
+      "phrases": ["even keel", "middle ground", "steady state"],
+      "weight": 1
+    },
+    "centered": {
+      "phrases": ["holding core", "finding middle", "staying grounded"],
+      "weight": 1
+    },
+    "harmonious": {
+      "phrases": ["flowing together", "matching rhythms", "gentle sync"],
+      "weight": 1
+    }
+  },
+  "prompts": [
+    {
+      "question": "How's your energy level feeling right now?",
+      "lowOption": {
+        "emoji": "☁️",
+        "label": "low-tide",
+        "description": "Gentle, slow, needing rest"
+      },
+      "highOption": {
+        "emoji": "✨",
+        "label": "starlit",
+        "description": "Bright, activated, ready"
+      }
+    },
+    {
+      "question": "Where's your mind wandering today?",
+      "lowOption": {
+        "emoji": "🌫️",
+        "label": "misty clouds",
+        "description": "Soft, scattered, dreamy"
+      },
+      "highOption": {
+        "emoji": "🔮",
+        "label": "clear crystal",
+        "description": "Sharp, focused, precise"
+      }
+    },
+    {
+      "question": "What does your heart need right now?",
+      "lowOption": {
+        "emoji": "🏰",
+        "label": "cozy fort",
+        "description": "Solitude, quiet, tucked away"
+      },
+      "highOption": {
+        "emoji": "🌻",
+        "label": "garden party",
+        "description": "Connection, sharing, together"
+      }
+    }
+  ]
+}

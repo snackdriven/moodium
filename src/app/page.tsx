@@ -7,19 +7,18 @@ export default function Home() {
     <main className={styles.main}>
       <div className={styles.description}>
         <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
+          Mood Creature Companion System
         </p>
         <div>
-          <a href="https://vercel.com?utm_source=typescript-nextjs-starter" target="_blank" rel="noopener noreferrer">
-            By{' '}
-            <Image src="/vercel.svg" alt="Vercel Logo" className={styles.vercelLogo} width={100} height={24} priority />
+          <a href="/check-in" className={styles.card}>
+            Start Check-in →
           </a>
         </div>
       </div>
 
       <div className={styles.center}>
-        <Image className={styles.logo} src="/next.svg" alt="Next.js Logo" width={180} height={37} priority />
+        <div style={{ fontSize: '4rem' }}>🌙</div>
+        <h1 style={{ marginTop: '1rem' }}>Mood Creature</h1>
       </div>
 
       <div className={styles.grid}>
