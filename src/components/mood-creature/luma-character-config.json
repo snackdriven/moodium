@@ -1,0 +1,407 @@
+{
+  "version": "1.0.0",
+  "character": {
+    "id": "luma-creature-001",
+    "name": "Luma",
+    "type": "creature-companion",
+    "description": "A neurodivergent-friendly mood companion with dynamic Lottie animations"
+  },
+  "animations": {
+    "idle": {
+      "lottie": "/animations/luma-idle.json",
+      "duration": 4000,
+      "loop": true,
+      "autoplay": true
+    },
+    "greeting": {
+      "lottie": "/animations/luma-wave.json",
+      "duration": 2000,
+      "loop": false,
+      "autoplay": true,
+      "audio": "/sounds/luma-hello.mp3"
+    },
+    "happy": {
+      "lottie": "/animations/luma-bounce.json",
+      "duration": 3000,
+      "loop": true,
+      "autoplay": true,
+      "particle_effects": {
+        "type": "sparkles",
+        "count": 12,
+        "color": "#FFD700"
+      }
+    },
+    "curious": {
+      "lottie": "/animations/luma-tilt.json",
+      "duration": 2500,
+      "loop": true,
+      "autoplay": true,
+      "morphTargets": {
+        "eyes": "wide",
+        "antenna": "perked"
+      }
+    },
+    "content": {
+      "lottie": "/animations/luma-gentle-sway.json",
+      "duration": 5000,
+      "loop": true,
+      "autoplay": true
+    },
+    "energized": {
+      "lottie": "/animations/luma-vibrate.json",
+      "duration": 2000,
+      "loop": true,
+      "autoplay": true,
+      "glow": {
+        "intensity": 1.5,
+        "color": "#FF6B6B"
+      }
+    },
+    "tired": {
+      "lottie": "/animations/luma-droop.json",
+      "duration": 4000,
+      "loop": true,
+      "autoplay": true,
+      "opacity": 0.8
+    },
+    "focused": {
+      "lottie": "/animations/luma-pulse.json",
+      "duration": 3000,
+      "loop": true,
+      "autoplay": true,
+      "audio": "/sounds/luma-focus.mp3"
+    },
+    "scattered": {
+      "lottie": "/animations/luma-swirl.json",
+      "duration": 3500,
+      "loop": true,
+      "autoplay": true
+    },
+    "social": {
+      "lottie": "/animations/luma-group.json",
+      "duration": 3000,
+      "loop": true,
+      "autoplay": true,
+      "duplicates": 2
+    },
+    "solitary": {
+      "lottie": "/animations/luma-retreat.json",
+      "duration": 4000,
+      "loop": true,
+      "autoplay": true,
+      "scale": 0.85
+    },
+    "waiting": {
+      "lottie": "/animations/luma-blink.json",
+      "duration": 6000,
+      "loop": true,
+      "autoplay": true
+    },
+    "processing": {
+      "lottie": "/animations/luma-think.json",
+      "duration": 3000,
+      "loop": true,
+      "autoplay": true,
+      "thought_bubbles": true
+    },
+    "success": {
+      "lottie": "/animations/luma-celebrate.json",
+      "duration": 2500,
+      "loop": false,
+      "autoplay": true,
+      "audio": "/sounds/luma-yay.mp3",
+      "confetti": true
+    },
+    "error": {
+      "lottie": "/animations/luma-dizzy.json",
+      "duration": 2000,
+      "loop": false,
+      "autoplay": true,
+      "shake": true
+    }
+  },
+  "color_palettes": {
+    "default": {
+      "primary": "#8B9DC3",
+      "secondary": "#DDA0DD",
+      "accent": "#FFB6C1",
+      "glow": "#E6E6FA"
+    },
+    "archetypes": {
+      "recharge": {
+        "primary": "#6B8E23",
+        "secondary": "#90EE90",
+        "accent": "#98FB98",
+        "glow": "#ADFF2F"
+      },
+      "gather": {
+        "primary": "#4682B4",
+        "secondary": "#87CEEB",
+        "accent": "#B0E0E6",
+        "glow": "#ADD8E6"
+      },
+      "flow": {
+        "primary": "#9370DB",
+        "secondary": "#BA55D3",
+        "accent": "#DA70D6",
+        "glow": "#DDA0DD"
+      },
+      "scatter": {
+        "primary": "#FFB347",
+        "secondary": "#FFDAB9",
+        "accent": "#FFE4B5",
+        "glow": "#FFEFD5"
+      },
+      "bloom": {
+        "primary": "#FF69B4",
+        "secondary": "#FFB6C1",
+        "accent": "#FFC0CB",
+        "glow": "#FFE4E1"
+      },
+      "focus_forge": {
+        "primary": "#B22222",
+        "secondary": "#DC143C",
+        "accent": "#FF6347",
+        "glow": "#FFA07A"
+      },
+      "fog_pulse": {
+        "primary": "#708090",
+        "secondary": "#778899",
+        "accent": "#B0C4DE",
+        "glow": "#D3D3D3"
+      },
+      "equilibrium": {
+        "primary": "#8A9A5B",
+        "secondary": "#C5E17A",
+        "accent": "#D8E2DC",
+        "glow": "#F0FFF0"
+      }
+    },
+    "mood_based": {
+      "high_energy": {
+        "primary": "#FF4500",
+        "glow": "#FFA500"
+      },
+      "low_energy": {
+        "primary": "#4169E1",
+        "glow": "#6495ED"
+      },
+      "focused": {
+        "primary": "#228B22",
+        "glow": "#32CD32"
+      },
+      "scattered": {
+        "primary": "#FF8C00",
+        "glow": "#FFD700"
+      },
+      "social": {
+        "primary": "#FF1493",
+        "glow": "#FF69B4"
+      },
+      "solitary": {
+        "primary": "#4B0082",
+        "glow": "#8B008B"
+      }
+    }
+  },
+  "sounds": {
+    "ambient": {
+      "default": "/sounds/ambient-soft-hum.mp3",
+      "volume": 0.3,
+      "loop": true
+    },
+    "interactions": {
+      "click": "/sounds/luma-click.mp3",
+      "hover": "/sounds/luma-hover.mp3",
+      "swipe": "/sounds/luma-swipe.mp3",
+      "submit": "/sounds/luma-confirm.mp3",
+      "cancel": "/sounds/luma-cancel.mp3"
+    },
+    "notifications": {
+      "gentle": "/sounds/luma-gentle-chime.mp3",
+      "alert": "/sounds/luma-alert.mp3",
+      "success": "/sounds/luma-success.mp3",
+      "error": "/sounds/luma-error.mp3"
+    }
+  },
+  "accessibility": {
+    "reduced_motion": {
+      "use_static_images": true,
+      "static_fallbacks": {
+        "idle": "/images/luma-idle.svg",
+        "happy": "/images/luma-happy.svg",
+        "curious": "/images/luma-curious.svg",
+        "content": "/images/luma-content.svg",
+        "tired": "/images/luma-tired.svg",
+        "focused": "/images/luma-focused.svg",
+        "scattered": "/images/luma-scattered.svg",
+        "social": "/images/luma-social.svg",
+        "solitary": "/images/luma-solitary.svg"
+      },
+      "disable_particle_effects": true,
+      "disable_glow": false,
+      "simplify_transitions": true
+    },
+    "screen_reader": {
+      "descriptions": {
+        "idle": "Luma is calmly floating",
+        "greeting": "Luma waves hello enthusiastically",
+        "happy": "Luma bounces with joy",
+        "curious": "Luma tilts their head inquisitively",
+        "content": "Luma sways gently, looking peaceful",
+        "energized": "Luma vibrates with energy",
+        "tired": "Luma droops sleepily",
+        "focused": "Luma pulses with concentration",
+        "scattered": "Luma swirls in multiple directions",
+        "social": "Luma multiplies to show social energy",
+        "solitary": "Luma becomes smaller and retreats",
+        "waiting": "Luma blinks patiently",
+        "processing": "Luma shows thought bubbles while thinking",
+        "success": "Luma celebrates with confetti",
+        "error": "Luma looks dizzy and confused"
+      },
+      "aria_labels": {
+        "character": "Luma mood companion",
+        "mood_slider": "Mood intensity selector",
+        "energy_axis": "Energy level from tired to energized",
+        "focus_axis": "Focus level from scattered to focused",
+        "social_axis": "Social preference from solitary to social"
+      }
+    },
+    "color_blind_modes": {
+      "protanopia": {
+        "primary": "#0073E6",
+        "secondary": "#FFB000",
+        "accent": "#7B7B7B"
+      },
+      "deuteranopia": {
+        "primary": "#0080FF",
+        "secondary": "#FFCC00",
+        "accent": "#808080"
+      },
+      "tritanopia": {
+        "primary": "#DC143C",
+        "secondary": "#00CED1",
+        "accent": "#696969"
+      }
+    }
+  },
+  "behaviors": {
+    "idle_variations": [
+      {
+        "trigger": "time",
+        "interval": 30000,
+        "animations": ["blink", "shift", "wiggle"]
+      },
+      {
+        "trigger": "inactivity",
+        "threshold": 60000,
+        "animation": "sleep"
+      }
+    ],
+    "reactive": {
+      "mouse_proximity": {
+        "near": {
+          "distance": 100,
+          "animation": "lean_towards",
+          "scale": 1.05
+        },
+        "far": {
+          "distance": 300,
+          "animation": "normal",
+          "scale": 1.0
+        }
+      },
+      "click_response": {
+        "animation": "bounce_small",
+        "sound": "/sounds/luma-giggle.mp3",
+        "duration": 500
+      },
+      "drag_response": {
+        "animation": "stretch",
+        "elasticity": 0.3,
+        "return_speed": 0.8
+      }
+    },
+    "transitions": {
+      "default_duration": 600,
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "morph_between_states": true,
+      "blend_colors": true
+    }
+  },
+  "performance": {
+    "quality_levels": {
+      "high": {
+        "fps": 60,
+        "resolution_scale": 1.0,
+        "enable_all_effects": true,
+        "particle_count": "full"
+      },
+      "medium": {
+        "fps": 30,
+        "resolution_scale": 0.75,
+        "enable_all_effects": false,
+        "particle_count": "half"
+      },
+      "low": {
+        "fps": 15,
+        "resolution_scale": 0.5,
+        "enable_all_effects": false,
+        "particle_count": "none"
+      }
+    },
+    "auto_adjust": true,
+    "target_fps": 30,
+    "lazy_load_animations": true,
+    "preload_priority": ["idle", "greeting", "happy", "content"]
+  },
+  "customization": {
+    "user_preferences": {
+      "allow_sound": true,
+      "animation_speed": 1.0,
+      "size_scale": 1.0,
+      "opacity": 1.0,
+      "glow_intensity": 1.0
+    },
+    "unlockables": {
+      "accessories": [
+        {
+          "id": "glasses",
+          "name": "Focus Glasses",
+          "unlock_condition": "10_focused_sessions",
+          "asset": "/accessories/glasses.svg"
+        },
+        {
+          "id": "headphones",
+          "name": "Sensory Headphones",
+          "unlock_condition": "5_solitary_sessions",
+          "asset": "/accessories/headphones.svg"
+        },
+        {
+          "id": "sparkles",
+          "name": "Energy Sparkles",
+          "unlock_condition": "15_energized_sessions",
+          "asset": "/accessories/sparkles.json"
+        }
+      ],
+      "themes": [
+        {
+          "id": "cosmic",
+          "name": "Cosmic Luma",
+          "unlock_condition": "30_total_sessions"
+        },
+        {
+          "id": "nature",
+          "name": "Forest Luma",
+          "unlock_condition": "20_recharge_sessions"
+        },
+        {
+          "id": "crystal",
+          "name": "Crystal Luma",
+          "unlock_condition": "25_focus_sessions"
+        }
+      ]
+    }
+  }
+}

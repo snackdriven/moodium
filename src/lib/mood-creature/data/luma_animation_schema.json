@@ -1,0 +1,510 @@
+{
+  "version": "1.0.0",
+  "character": {
+    "id": "luma",
+    "displayName": "Luma",
+    "description": "Bioluminescent forest companion whose glow and motion mirror the user's mood."
+  },
+  "assets": {
+    "lottieCompositions": {
+      "idle_breath": "/anim/luma_idle_breath.json",
+      "idle_focus": "/anim/luma_idle_focus.json",
+      "ear_flick": "/anim/luma_ear_flick.json",
+      "wake": "/anim/luma_wake.json",
+      "nod": "/anim/luma_nod.json",
+      "float_think": "/anim/luma_float_think.json",
+      "wave_celebrate": "/anim/luma_wave_celebrate.json",
+      "curl_sleep": "/anim/luma_curl_sleep.json",
+      "hop_play": "/anim/luma_hop_play.json",
+      "dance_loop": "/anim/luma_dance_loop.json",
+      "spark_trail": "/anim/particle_spark_trail.json",
+      "poof_glow": "/anim/particle_poof_glow.json"
+    },
+    "audio": {
+      "hum_low": "/audio/hum_low.mp3",
+      "hum_mid": "/audio/hum_mid.mp3",
+      "hum_high": "/audio/hum_high.mp3",
+      "chime_soft": "/audio/chime_soft.mp3",
+      "sparkle": "/audio/sparkle.mp3",
+      "sigh": "/audio/sigh.mp3"
+    }
+  },
+  "color": {
+    "palette": {
+      "furBase": [
+        "#4A207A",
+        "#7E33B8"
+      ],
+      "hornCalm": "#6DE6E2",
+      "hornActive": "#25E8C3",
+      "eyeBase": "#FFB300",
+      "eyeBright": "#FFD86B"
+    },
+    "energyGradient": [
+      {
+        "t": 0,
+        "color": "#5E3A85"
+      },
+      {
+        "t": 25,
+        "color": "#6B3EA0"
+      },
+      {
+        "t": 50,
+        "color": "#7E33B8"
+      },
+      {
+        "t": 75,
+        "color": "#9C37C7"
+      },
+      {
+        "t": 100,
+        "color": "#C453FF"
+      }
+    ],
+    "ambientByArchetype": {
+      "Recharge": [
+        "#302044",
+        "#24103A"
+      ],
+      "Gather": [
+        "#472E6A",
+        "#2A1B4F"
+      ],
+      "Flow": [
+        "#55318E",
+        "#44216A"
+      ],
+      "Scatter": [
+        "#6B2499",
+        "#9C37C7"
+      ],
+      "Bloom": [
+        "#8228CC",
+        "#FF8EF0"
+      ],
+      "Focus Forge": [
+        "#2B204D",
+        "#16374F"
+      ],
+      "Fog Pulse": [
+        "#3D2565",
+        "#2C1F4D"
+      ],
+      "Equilibrium": [
+        "#4C2B7A",
+        "#3A2460"
+      ]
+    }
+  },
+  "mappings": {
+    "tierThresholds": {
+      "energy": [
+        0,
+        17,
+        34,
+        51,
+        68,
+        84,
+        100
+      ],
+      "focus": [
+        0,
+        17,
+        34,
+        51,
+        68,
+        84,
+        100
+      ],
+      "social": [
+        0,
+        17,
+        34,
+        51,
+        68,
+        84,
+        100
+      ]
+    },
+    "parameters": {
+      "hornGlow": "linear(energy, 0, 100, 0.25, 1.00)",
+      "eyeIntensity": "linear(focus, 0, 100, 0.55, 1.00)",
+      "smileCurve": "linear(social, 0, 100, -0.20, 0.50)",
+      "breathBpm": "linear(energy, 0, 100, 14, 115)",
+      "jitterFreq": "linear(clamp(energy - focus, -100, 100), -100, 100, 0.00, 0.60)",
+      "particleDensity": "step(energy, [0,40,70,90], [0, 3, 8, 16])"
+    }
+  },
+  "archetypes": [
+    {
+      "name": "Recharge",
+      "conditions": {
+        "energy": [
+          1,
+          2
+        ],
+        "focus": [
+          1,
+          3
+        ],
+        "social": [
+          1,
+          2
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 0.5,
+          "loop": "idle_breath",
+          "micro": [
+            "ear_flick"
+          ]
+        },
+        "hornGlowMultiplier": 0.7,
+        "ambientGradient": "@color.ambientByArchetype.Recharge",
+        "particles": {
+          "type": "none",
+          "density": 0
+        }
+      }
+    },
+    {
+      "name": "Gather",
+      "conditions": {
+        "energy": [
+          2,
+          3
+        ],
+        "focus": [
+          3,
+          4
+        ],
+        "social": [
+          2,
+          3
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 0.8,
+          "loop": "idle_focus",
+          "micro": [
+            "nod"
+          ]
+        },
+        "hornGlowMultiplier": 0.85,
+        "ambientGradient": "@color.ambientByArchetype.Gather",
+        "particles": {
+          "type": "soft_dust",
+          "density": 2
+        }
+      }
+    },
+    {
+      "name": "Flow",
+      "conditions": {
+        "energy": [
+          3,
+          4
+        ],
+        "focus": [
+          4,
+          5
+        ],
+        "social": [
+          3,
+          4
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 1.0,
+          "loop": "idle_focus"
+        },
+        "hornGlowMultiplier": 1.0,
+        "ambientGradient": "@color.ambientByArchetype.Flow",
+        "particles": {
+          "type": "halo_glow",
+          "density": 4
+        }
+      }
+    },
+    {
+      "name": "Scatter",
+      "conditions": {
+        "energy": [
+          5,
+          6
+        ],
+        "focus": [
+          1,
+          2
+        ],
+        "social": [
+          4,
+          6
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 1.2,
+          "loop": "hop_play",
+          "micro": [
+            "spark_trail"
+          ]
+        },
+        "hornGlowMultiplier": 1.2,
+        "ambientGradient": "@color.ambientByArchetype.Scatter",
+        "particles": {
+          "type": "spark",
+          "density": 10
+        }
+      }
+    },
+    {
+      "name": "Bloom",
+      "conditions": {
+        "energy": [
+          4,
+          6
+        ],
+        "focus": [
+          3,
+          5
+        ],
+        "social": [
+          4,
+          6
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 1.1,
+          "loop": "dance_loop"
+        },
+        "hornGlowMultiplier": 1.15,
+        "ambientGradient": "@color.ambientByArchetype.Bloom",
+        "particles": {
+          "type": "petal_glow",
+          "density": 7
+        }
+      }
+    },
+    {
+      "name": "Focus Forge",
+      "conditions": {
+        "energy": [
+          2,
+          4
+        ],
+        "focus": [
+          5,
+          6
+        ],
+        "social": [
+          1,
+          3
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 0.9,
+          "loop": "idle_focus"
+        },
+        "hornGlowMultiplier": 0.95,
+        "ambientGradient": "@color.ambientByArchetype['Focus Forge']",
+        "particles": {
+          "type": "beam_line",
+          "density": 3
+        }
+      }
+    },
+    {
+      "name": "Fog Pulse",
+      "conditions": {
+        "energy": [
+          3,
+          4
+        ],
+        "focus": [
+          1,
+          2
+        ],
+        "social": [
+          1,
+          2
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 0.8,
+          "loop": "idle_breath"
+        },
+        "hornGlowMultiplier": 0.8,
+        "ambientGradient": "@color.ambientByArchetype['Fog Pulse']",
+        "particles": {
+          "type": "mist",
+          "density": 2
+        }
+      }
+    },
+    {
+      "name": "Equilibrium",
+      "conditions": {
+        "energy": [
+          3,
+          4
+        ],
+        "focus": [
+          3,
+          4
+        ],
+        "social": [
+          3,
+          4
+        ]
+      },
+      "preset": {
+        "motion": {
+          "tempoScale": 1.0,
+          "loop": "idle_breath"
+        },
+        "hornGlowMultiplier": 1.0,
+        "ambientGradient": "@color.ambientByArchetype.Equilibrium",
+        "particles": {
+          "type": "soft_halo",
+          "density": 3
+        }
+      }
+    }
+  ],
+  "states": {
+    "idle": {
+      "composition": "idle_breath",
+      "loop": true,
+      "params": {
+        "hornGlow": "@mappings.parameters.hornGlow",
+        "breathBpm": "@mappings.parameters.breathBpm"
+      }
+    },
+    "hover": {
+      "composition": "ear_flick",
+      "loop": false,
+      "params": {
+        "hornGlow": "min(@mappings.parameters.hornGlow + 0.1, 1.0)"
+      }
+    },
+    "greeting": {
+      "composition": "wake",
+      "loop": false,
+      "params": {
+        "hornGlow": "clamp(@mappings.parameters.hornGlow + 0.2, 0, 1)"
+      }
+    },
+    "listening": {
+      "composition": "idle_focus",
+      "loop": true
+    },
+    "thinking": {
+      "composition": "float_think",
+      "loop": true,
+      "particles": "halo_glow"
+    },
+    "celebrate": {
+      "composition": "wave_celebrate",
+      "loop": false,
+      "particles": "poof_glow"
+    },
+    "sleep": {
+      "composition": "curl_sleep",
+      "loop": true
+    }
+  },
+  "transitions": [
+    {
+      "event": "check_in_start",
+      "from": "idle",
+      "to": "greeting",
+      "duration": 1800,
+      "easing": "easeInOut"
+    },
+    {
+      "event": "prompt_next",
+      "from": "listening",
+      "to": "listening",
+      "composition": "nod",
+      "duration": 600,
+      "easing": "easeInOut"
+    },
+    {
+      "event": "summary_generate",
+      "from": "listening",
+      "to": "thinking",
+      "duration": 2500,
+      "easing": "easeInOutSine"
+    },
+    {
+      "event": "save_success",
+      "from": "thinking",
+      "to": "celebrate",
+      "duration": 1200,
+      "easing": "easeOutBack"
+    },
+    {
+      "event": "exit",
+      "from": "celebrate",
+      "to": "idle",
+      "duration": 2000,
+      "easing": "easeIn"
+    },
+    {
+      "event": "error",
+      "from": "*",
+      "to": "idle",
+      "duration": 900,
+      "easing": "easeOut",
+      "colorDesaturate": 0.3,
+      "sound": "sigh"
+    }
+  ],
+  "audioRules": {
+    "enabled": true,
+    "volume": 0.3,
+    "byEnergy": [
+      {
+        "min": 0,
+        "max": 33,
+        "loop": "hum_low"
+      },
+      {
+        "min": 34,
+        "max": 66,
+        "loop": "hum_mid"
+      },
+      {
+        "min": 67,
+        "max": 100,
+        "loop": "hum_high"
+      }
+    ],
+    "eventSfx": {
+      "check_in_start": "chime_soft",
+      "save_success": "sparkle"
+    }
+  },
+  "a11y": {
+    "prefersReducedMotion": {
+      "scale": 0.35,
+      "disableParticles": true,
+      "minLoopDurationMs": 2000
+    },
+    "altText": {
+      "idle": "Luma breathes calmly with a faint horn glow.",
+      "greeting": "Luma wakes, stretches, and smiles.",
+      "thinking": "Luma floats gently with a ring of light.",
+      "celebrate": "Luma waves with a burst of glow.",
+      "sleep": "Luma curls up and rests."
+    }
+  }
+}

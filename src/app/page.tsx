@@ -1,14 +1,10 @@
-import Image from 'next/image';
-
 import styles from './page.module.css';
 
 export default function Home() {
   return (
     <main className={styles.main}>
       <div className={styles.description}>
-        <p>
-          Mood Creature Companion System
-        </p>
+        <p>Mood Creature Companion System</p>
         <div>
           <a href="/check-in" className={styles.card}>
             Start Check-in →
