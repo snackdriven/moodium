@@ -51,6 +51,9 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  turbopack: {
+    root: 'C:\\Users\\bette\\Documents\\name-default',
+  },
   async headers() {
     return [
       {

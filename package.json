@@ -12,7 +12,8 @@
     "typescript"
   ],
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "node scripts/kill-port.cjs 3000 && next dev --turbopack",
+    "dev:raw": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "type-check": "tsc --noEmit",
@@ -30,8 +31,11 @@
     ]
   },
   "dependencies": {
+    "@supabase/supabase-js": "2.75.0",
     "@t3-oss/env-nextjs": "0.13.8",
+    "drizzle-orm": "0.44.6",
     "next": "15.5.4",
+    "postgres": "3.4.7",
     "react": "19.2.0",
     "react-dom": "19.2.0",
     "zod": "4.1.11"
@@ -47,6 +51,7 @@
     "@types/react-dom": "19.2.0",
     "@typescript-eslint/eslint-plugin": "8.45.0",
     "@typescript-eslint/parser": "8.45.0",
+    "drizzle-kit": "0.31.5",
     "eslint": "9.36.0",
     "eslint-config-next": "15.5.4",
     "eslint-config-prettier": "10.1.8",

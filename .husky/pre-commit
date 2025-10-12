@@ -10,5 +10,5 @@ fi
 
 if [ -n "${HUSKY_ENABLED}" ] && [ "${HUSKY_ENABLED}" == "true" ]; then
   echo "[husky] [pre-commit] [HUSKY_ENABLED]"
-  npm run lint-staged
+  npx lint-staged
 fi
